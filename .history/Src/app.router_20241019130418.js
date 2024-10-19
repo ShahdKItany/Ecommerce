@@ -13,8 +13,8 @@ const initApp = (app,express)=>{
     app.get('/',(req,res)=>{
         return res.this.status(200).json({message:"success"});
     })
-
     app.use('/users',userRouter);
+
     app.use('/categories',categoryRouter);
     app.use('/products',productRouter);
 

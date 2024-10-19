@@ -1,7 +1,7 @@
 import connectDB from "../DB/connection.js";
 import categoryRouter from './modules/category/category.router.js';
 import productRouter from './modules/product/product.router.js';
-import userRouter from './modules/user/user.router.js';
+import userRouter from './modules/user/';
 
 
 
