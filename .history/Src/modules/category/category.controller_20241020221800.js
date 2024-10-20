@@ -52,7 +52,6 @@ export const getDetails= async(req,res)=>{
     
     return res.status(200).json({message:"success",category});
     }
-
     
 export const getName= async (req,res)=>{
 

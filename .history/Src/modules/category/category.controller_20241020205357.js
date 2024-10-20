@@ -30,35 +30,10 @@ export const create =async (req,res)=>{
     return res.json({message:"success",category});;
 }
 
-//admin
+
 export const getAll = async (req,res)=>{
 
     const categories = await categoryModel.find({});
-    return res.status(200).json({message:"success",categories});
+    return res.json({message:"success",categories});
 }
  
-
-//user
-export const getActive= async (req,res)=>{
-
-    const categories = await categoryModel.find({status: 'active'});
-    return res.status(200).json({message:"success",categories});
-}
- 
-
-export const getDetails= async(req,res)=>{
-
-    const category = await categoryModel.findById(req.params.id);
-    
-    return res.status(200).json({message:"success",category});
-    }
-
-    
-export const getName= async (req,res)=>{
-
-   // const categories = await categoryModel.find({status: 'active'}).select("name");
-   // return res.status(200).json({message:"success",categories});
-
-   return res.json(req.params);
-}
-

@@ -10,12 +10,8 @@ const router = Router({caseSensitive:true});
 router.post('/', fileUpload(fileType.image).single('image'), categoryController.create);
 
     router.get('/',categoryController.getAll);
+    router.get('/',categoryController.getActive);
 
-    router.get('/active', categoryController.getActive);
-
-    router.get('/:id', categoryController.getDetails);
-
-    router.get('/active/:name', categoryController.getName);
 
 export default router; 
 
