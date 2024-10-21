@@ -1,7 +1,6 @@
 import connectDB from "../DB/connection.js";
 import categoryRouter from './modules/category/category.router.js';
 import productRouter from './modules/product/product.router.js';
-import authRouter from '../Src/modules/auth/auth.router.js';
 
 const initApp = (app,express)=>{
     connectDB();

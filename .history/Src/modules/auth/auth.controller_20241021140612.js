@@ -11,7 +11,7 @@ export const register = async (req, res) => {
     }
 
     // Parse SALTROUND as a number, or provide a default value if undefined
-    const saltRounds = parseInt(process.env.SALTROUND);
+    const saltRounds = parseInt(process.env.SALTROUND) || 10;
 
     // Hash the password with the parsed salt rounds
     const hashedPassword = bcrypt.hashSync(password, saltRounds);

@@ -1,12 +1,12 @@
-import mongoose, { model, Schema, Types } from 'mongoose';
+import mongoose ,{model, Schema,Types }from 'mongoose';
 
 const userSchema = new Schema({
     userName: {
         type: String,
         required: true,
         unique: true,
-        minlength: 4,
-        maxlength: 20
+        min:4,
+        max:20
     },
     email: {
         type: String,
@@ -18,7 +18,7 @@ const userSchema = new Schema({
         required: true
     },
     image: {
-        type: Object
+        type: object
     },
     phone: {
         type: String
