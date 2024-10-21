@@ -63,40 +63,11 @@ export const getName= async (req,res)=>{
 }
 
 export const update = async(req,res)=>{
-
-  
   const category= await categoryModel.findById(req.params.id); 
+
   if (!category){
-         return res.status(404).json({message:"category not found"});
+return res.star
   }
-
-
-
-  category.name = req.body.name.toLowerCase();
-
-  if( await categoryModel.findOne({name:category.name ,_id:{$ne:req.params.id}})){ 
-    //  هاي معناها افحصلي اذا هاد الاسم موود بتصنيف غير هاد التصنيف الي عندي
-    //ne = not rquale
-    return res.status(409).json({message:"category name is already exists"});
-  }
-
-  category.slug= slugify(req.body.name);
-  if (req.file){
-
-    const {secure_url,public_id} = await cloudinary.uploader.upload(req.file.path,{
-      folder:'ecommerce1/categories'
-    });
-    cloudinary.uploader.destroy(category.image.public_id);
-    //destroy :  حتى كل ما ارفع صورة جديده يحذف الي قبل 
-
-    category.image={secure_url,public_id};
-
-  }
-  
-  category.status = req.body.status;
-
-  await category.save();
-   
-  return res.json({message:"success",category});
+  return res.json(category);
 
 }

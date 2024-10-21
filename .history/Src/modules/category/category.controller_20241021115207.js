@@ -86,8 +86,7 @@ export const update = async(req,res)=>{
     const {secure_url,public_id} = await cloudinary.uploader.upload(req.file.path,{
       folder:'ecommerce1/categories'
     });
-    cloudinary.uploader.destroy(category.image.public_id);
-    //destroy :  حتى كل ما ارفع صورة جديده يحذف الي قبل 
+    cloudinary.upl
 
     category.image={secure_url,public_id};
 
