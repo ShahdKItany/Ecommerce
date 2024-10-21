@@ -109,6 +109,6 @@ if(!category){
   return res.status(404).json({message:"category is not found"})};
 
   await cloudinary.uploader.destroy(category.image.public_id);
-  return res.status(200).json({message:"success",category});
+  return res.status(200).json({message:"success",category})};
 
 }

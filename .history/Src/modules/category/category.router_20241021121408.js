@@ -13,6 +13,6 @@ router.post('/', fileUpload(fileType.image).single('image'), categoryController.
     router.get('/active', categoryController.getActive);
     router.get('/:id', categoryController.getDetails);
     router.patch('/:id',fileUpload(fileType.image).single('image'),categoryController.update);
-    router.delete('/:id',categoryController.destroy);
+    router.delete(':id')
 export default router; 
 
