@@ -6,12 +6,13 @@ import userModel from "../../../DB/models/user.model.js";
 export const register = async (req, res) => {
     const { userName, email, password } = req.body;
 
+    // التحقق من الحقول المطلوبة
     if (!userName || !email || !password) {
         return res.status(400).json({ message: "All fields are required" });
     }
 
     // التأكد من عدم وجود مستخدم بنفس البريد الإلكتروني
-    const user = await userModel.findOne({email});
+    const user = await userModel.findOne({email });
     if (user) {
         return res.status(409).json({ message: "Email already exists" });
     }
@@ -32,9 +33,11 @@ export const login = async (req, res) => {
     
         const { userName,email,password } = req.body;
 
+         // التحقق من الحقول المطلوبة
     if ( !email || !password) {
         return res.status(400).json({ message: "All fields are required" });
     }
+
         // Find user by email
         const user = await userModel.findOne({email});
 

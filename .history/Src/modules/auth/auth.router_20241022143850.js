@@ -5,6 +5,6 @@ const router = Router({ caseSensitive: true });
 
 
 router.post('/register',authController.register);
-router.post('/login',authController.login);
 
+router.post('/login',authController)
 export default router;

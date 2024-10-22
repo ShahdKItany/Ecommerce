@@ -6,6 +6,7 @@ import userModel from "../../../DB/models/user.model.js";
 export const register = async (req, res) => {
     const { userName, email, password } = req.body;
 
+    // التحقق من الحقول المطلوبة
     if (!userName || !email || !password) {
         return res.status(400).json({ message: "All fields are required" });
     }
@@ -21,6 +22,7 @@ export const register = async (req, res) => {
 
     try {
         const createUser = await userModel.create({ userName, email, password: hashedPassword });
+
         return res.status(201).json({ message: "Success", user: createUser });
     } catch (error) {
         return res.status(500).json({ message: "Error creating user", error: error.message });
@@ -32,9 +34,11 @@ export const login = async (req, res) => {
     
         const { userName,email,password } = req.body;
 
+         // التحقق من الحقول المطلوبة
     if ( !email || !password) {
         return res.status(400).json({ message: "All fields are required" });
     }
+
         // Find user by email
         const user = await userModel.findOne({email});
 
